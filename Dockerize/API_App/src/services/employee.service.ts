@@ -8,15 +8,15 @@ const {Employee} = require('../../models');
 export async function GetAllEmployeesFromDB() : Promise<any>
 {
 
-    const all_emps = await Employee.findAll({attributes : ['uuid','name','salary','department']})
-    return all_emps;
+    const allEmployees = await Employee.findAll({attributes : ['uuid','name','salary','department']})
+    return allEmployees;
 }
 
 export async function AddNewEmployeeIntoDB(emp_req:EmployeeRequest) : Promise<any>
 {
         //insert 
-        const emp = await Employee.create(emp_req);
-        return emp; 
+        const newEmployee = await Employee.create(emp_req);
+        return newEmployee; 
 }
 
 export async function GetEmployeeByIDFromDB(uuid:string) : Promise<any>
@@ -33,37 +33,36 @@ export async function GetEmployeeByIDFromDB(uuid:string) : Promise<any>
 export async function UpdateEmployeeByIDFromDB(uuid:string, new_params:EmployeeRequest) : Promise<any>
 {
 
-    const emp = await Employee.findOne({where :{uuid}});
+    const employee = await Employee.findOne({where :{uuid}});
 
-    if (emp === null)
+    if (employee === null)
         throw new LogicError(LogicErrorEnum.NotFound);
 
-    if (emp.name == new_params.name &&
-        emp.salary == new_params.salary &&
-        emp.department == new_params.department 
+    if (employee.name == new_params.name &&
+        employee.salary == new_params.salary &&
+        employee.department == new_params.department 
     )
         throw new LogicError(LogicErrorEnum.NoChange);
 
 
-    emp.name = new_params.name;
-    emp.salary = new_params.salary;
-    emp.department = new_params.department;
+    employee.name = new_params.name;
+    employee.salary = new_params.salary;
+    employee.department = new_params.department;
 
-    console.log(emp);
 
-    await emp.save();
-    return emp;
+    await employee.save();
+    return employee;
 
 }
 
 export async function DeleteEmployeeByIDFromDB(uuid:string)
 {
-        const emp = await Employee.findOne({where:{uuid}});
+        const employee = await Employee.findOne({where:{uuid}});
 
-        if (emp === null)
+        if (employee === null)
             throw new LogicError(LogicErrorEnum.NotFound);
         
-        await emp.destroy();
+        await employee.destroy();
 
-        return emp;
+        return employee;
 }
