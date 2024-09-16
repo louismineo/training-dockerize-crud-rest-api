@@ -4,7 +4,7 @@ import router from './routes/employee.route'
 import { urlencoded } from 'body-parser';
 
 // run and init the database connection
-const {sequelize} = require('./Database/models')
+const {sequelize} = require('../models')
 
 
 

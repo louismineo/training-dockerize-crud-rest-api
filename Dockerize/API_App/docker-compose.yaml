@@ -8,8 +8,7 @@ services:
       database:
         condition: service_healthy # Ensure the database service is healthy before starting this service
     command: >
-      sh -c "cd src && cd Database &&
-      echo 'MIGRATING DATA' &&
+      sh -c "echo 'MIGRATING DATA' &&
       npx sequelize-cli db:migrate &&
       npx sequelize-cli db:seed:all && 
       npm run dev"

@@ -1,9 +1,9 @@
 import { NextFunction } from 'connect'
-import { employeeDefSchema,EmployeeRequest } from '../models/employee.model'
+import { employeeDefSchema,EmployeeRequest } from '../types/employee.model'
 import {ErrorHandler, LogicError, LogicErrorEnum,} from '../errors/employee.errors';
 
 
-const {Employee} = require('../Database/models');
+const {Employee} = require('../../models');
 
 export async function GetAllEmployeesFromDB() : Promise<any>
 {
