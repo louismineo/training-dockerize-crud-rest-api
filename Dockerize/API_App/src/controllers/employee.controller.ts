@@ -15,8 +15,8 @@ export async function GetAllEmployees(req:Request, res:Response, next:NextFuncti
     catch (e)
     {
         const appError = ErrorHandler.handleErrors(e);
-        let json_msg = errorResponseSchema.parse({errorMessage:appError.message});
-        return res.status(appError.statusCode).json(json_msg);
+        let jsonMessage = errorResponseSchema.parse({errorMessage:appError.message});
+        return res.status(appError.statusCode).json(jsonMessage);
     }
 }
 
@@ -31,8 +31,8 @@ export async function AddNewEmployee(req:Request, res:Response, next:NextFunctio
     catch (e)
     {
         const appError = ErrorHandler.handleErrors(e);
-        let json_msg = errorResponseSchema.parse({errorMessage:appError.message});
-        return res.status(appError.statusCode).json(json_msg);
+        let jsonMessage = errorResponseSchema.parse({errorMessage:appError.message});
+        return res.status(appError.statusCode).json(jsonMessage);
     }
 }
 
@@ -47,8 +47,8 @@ export async function GetEmployeeByID(req:Request, res:Response, next:NextFuncti
     catch (e)
     {
         const appError = ErrorHandler.handleErrors(e);
-        let json_msg = errorResponseSchema.parse({errorMessage:appError.message});
-        return res.status(appError.statusCode).json(json_msg);
+        let jsonMessage = errorResponseSchema.parse({errorMessage:appError.message});
+        return res.status(appError.statusCode).json(jsonMessage);
     }
 }
 
@@ -65,8 +65,8 @@ export async function UpdateEmployeeByID(req:Request, res:Response, next:NextFun
     catch (e)
     {
         const appError = ErrorHandler.handleErrors(e);
-        let json_msg = errorResponseSchema.parse({errorMessage:appError.message});
-        return res.status(appError.statusCode).json(json_msg);
+        let jsonMessage = errorResponseSchema.parse({errorMessage:appError.message});
+        return res.status(appError.statusCode).json(jsonMessage);
     }
 }
 
@@ -81,7 +81,7 @@ export async function DeleteEmployeeByID(req:Request, res:Response, next:NextFun
     catch (e)
     {
         const appError = ErrorHandler.handleErrors(e);
-        let json_msg = errorResponseSchema.parse({errorMessage:appError.message});
-        return res.status(appError.statusCode).json(json_msg);
+        let jsonMessage = errorResponseSchema.parse({errorMessage:appError.message});
+        return res.status(appError.statusCode).json(jsonMessage);
     }
 }
